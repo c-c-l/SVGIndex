@@ -16,7 +16,10 @@ Cette documentation est écrite dans le but d'éviter le surplus de commentaires
 
 - Configuration node et serveur node
 - Installation et configuration mongodb
-- Création JSON Schema 
+- Création JSON Schema
+- Création du fichier XSLT
+- Impossible d'utiliser le fichier XSLT parce qu'on ne comprend pas la techno
+- Création d'un convertisseur python de SVG en JSON 
 
 ## Sources
 

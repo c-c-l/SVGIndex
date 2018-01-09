@@ -1,7 +1,7 @@
 <svg url="line002" width="12cm" height="4cm" version="1.1">
-    <line x1="100" y1="300" x2="300" y2="100" stroke-width="5"  />
-    <line x1="300" y1="300" x2="500" y2="100" stroke-width="10"  />
-    <line x1="500" y1="300" x2="700" y2="100" stroke-width="15"  />
-    <line x1="700" y1="300" x2="900" y2="100" stroke-width="20"  />
-    <line x1="900" y1="300" x2="1100" y2="100" stroke-width="25"  />
+    <line x1="100" y1="300" x2="300" y2="100" stroke-width="5" stroke="blue" />
+    <line x1="300" y1="300" x2="500" y2="100" stroke-width="10" stroke="blue" />
+    <line x1="500" y1="300" x2="700" y2="100" stroke-width="15" stroke="blue" />
+    <line x1="700" y1="300" x2="900" y2="100" stroke-width="20" stroke="blue" />
+    <line x1="900" y1="300" x2="1100" y2="100" stroke-width="25" stroke="blue" />
 </svg>

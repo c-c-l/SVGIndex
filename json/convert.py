@@ -39,7 +39,11 @@ else :
 svgFile = doc.getElementsByTagName(shape)
 for element in svgFile:
     if element.getAttribute('fill') :
-        color = element.getAttribute('fill')
+        if element.getAttribute('fill') != 'none' :
+            color = element.getAttribute('fill')
+            # Handle exception when stroke only
+        elif element.getAttribute('stroke') != 'none' :
+            color = element.getAttribute('stroke')
     else :
         print("Pas de couleur détectée, c'est bien triste :(")
 
