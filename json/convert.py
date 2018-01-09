@@ -44,6 +44,8 @@ for element in svgFile:
             # Handle exception when stroke only
         elif element.getAttribute('stroke') != 'none' :
             color = element.getAttribute('stroke')
+    elif element.getAttribute('stroke') :
+        color = element.getAttribute('stroke')
     else :
         print("Pas de couleur détectée, c'est bien triste :(")
 
@@ -67,7 +69,7 @@ print(urlVal +".svg")
 
 
 # Création d'un dictionnaire pour en faire un fichier json avec les données recueillies
-dic={'url': urlVal, 'content':[{'shape' : shape, 'color': color}]}
+dic={"url":urlVal, "content": [{"shape": shape,"parameters":[{"color": color}]}]}
 
 # Génère un fichier Json
 fileName = "jsonimage/" + urlVal + ".json"

@@ -2,7 +2,7 @@ var mongoose = require('mongoose');
 var fs = require('fs');
 
 // useMongoClient : true : pour contrer erreur (solution stackoverflow)
-mongoose.connect('mongodb://localhost/svg') , { useMongoClient: true });;
+mongoose.connect('mongodb://localhost/svg', { useMongoClient: true });;
 
 // JSON Schema : copie de jsonschema.json
 var schema = {
@@ -54,7 +54,6 @@ fs.readdir("jsonimage",function(err, files){
 
 			// Analyse du contenu
 			var JsonParsed = JSON.parse(contenu);
-			console.log("--->" + JsonParsed + ": a été analysé <---");
 			// Enregistrement
 			var img = new Image(JsonParsed);
 			img.save(function (err) {
