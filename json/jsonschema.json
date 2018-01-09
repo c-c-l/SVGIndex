@@ -10,15 +10,21 @@
 				"type": "object",
 				"properties": {
 					"shape": {
-						"type": "string",
+						"type": "string"
 					},
-					"color": {
-						"type": "string",
+					"parameters" : {
+						"items": {
+							"type": "object",
+							"properties" : {
+								"color" : {"type" : "string"},
+							},
+							"required": ["color"]
+						}
 					}
 				},
-				"required": ["shape", "color"]
+				"required": ["shape", "parameters"]
 			}
 		}
 	},
       "required": ["url", "content"]
-}
+};
