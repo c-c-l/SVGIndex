@@ -1,0 +1,24 @@
+{
+	"url":{
+		"type" : "string"
+	},
+	"type":"object",
+	"properties":{
+		"content":{
+			"type": "array",
+			"items": {
+				"type": "object",
+				"properties": {
+					"shape": {
+						"type": "string",
+					},
+					"color": {
+						"type": "string",
+					}
+				},
+				"required": ["shape", "color"]
+			}
+		}
+	},
+      "required": ["url", "content"]
+}

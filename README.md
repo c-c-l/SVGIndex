@@ -16,7 +16,7 @@ Cette documentation est écrite dans le but d'éviter le surplus de commentaires
 
 - Configuration node et serveur node
 - Installation et configuration mongodb
-- Création JSON Schema
+- Création JSON Schema 
 
 ## Sources
 

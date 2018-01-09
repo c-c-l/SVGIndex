@@ -12,6 +12,7 @@ db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function() {
   console.log('Connexion OK :)')
 });
+
 // Route / index
 // Configure la page affichée pour localhost:8080/
 app.get('/', function(req, res) {
