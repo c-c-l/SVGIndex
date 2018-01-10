@@ -64,9 +64,21 @@ http.listen(port, function() {
 });
 
 // VOILA
-// Lire fichier json
+// Enregistrer le dossier contenant les fichiers json
+var dirJson = "json/jsonimage";
 fs.readFile('json/jsonimage/circle001.json', getShape)
-
+// Parcourir le dossier à la recherche des fichiers json
+fs.readdir(dirJson, function( err, files ) {
+	if( err ) {
+		console.error( "Impossible de trouver le dossier : ", err );
+		process.exit( 1 );
+	}
+	files.forEach(function( file, index ) {
+		console.log(file);
+		// Lire fichier json
+		fs.readFile(dirJson+'/'+file, getShape);
+	});
+});
 function getShape(err, data) {
     if (err) throw err
 		// Parse fichier json
@@ -83,5 +95,6 @@ function getShape(err, data) {
 		// Parser l'objet convertit pour pouvoir extraire la forme
 		var objConv = JSON.parse(stringContent);
 		shape = (objConv.shape);
-    // You can now play with your datas
+		console.log(shape)
+		return shape;
 }
