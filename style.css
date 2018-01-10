@@ -1,0 +1,24 @@
+html {
+  font-family: 'Roboto', sans-serif;
+}
+h1 {
+  color: #5f4b8b;
+  text-align: center;
+}
+.rechercheShape {
+  margin-bottom: 30px;
+  text-align: center;
+}
+.rechercheShape button {
+  background-color: #5f4b8b;
+  border: 1px solid #FFF;
+  border-radius: 5px;
+  color: #FFF;
+  cursor: pointer;
+  padding: 5px 10px;
+}
+.rechercheShape button:hover {
+  background-color: #FFF;
+  border-color: #5f4b8b;
+  color: #5f4b8b;
+}

@@ -1,8 +1,7 @@
 var http = require('http');
 var express = require('express');
 var app = express();
-var http = require('http');
-var httpS = require('http').Server(app);
+var http = require('http').Server(app);
 var url = require('url');
 var querystring = require('querystring');
 var fs = require('fs');
@@ -60,8 +59,29 @@ app.get('/', function(req, res) {
 });
 
 var port = 8080;
-httpS.listen(port, function() {
+http.listen(port, function() {
 	console.log('Serveur Nodejs Express sur le port 8080');
 });
 
 // VOILA
+// Lire fichier json
+fs.readFile('json/jsonimage/circle001.json', getShape)
+
+function getShape(err, data) {
+    if (err) throw err
+		// Parse fichier json
+    obj = JSON.parse(data)
+		// Enregistrer le contenu dans une variable
+		content = obj.content
+		// Convertit le résultat en string afin de pouvoir encore parser derrière
+		stringContent = JSON.stringify(content)
+		strilen = stringContent.length
+		// Supprimer les crochets du début qui empêchent la fonction JSON.parse()
+		// de fonctionner #HARDCODE
+		strilen = strilen - 1;
+		stringContent = stringContent.substring(1, strilen);
+		// Parser l'objet convertit pour pouvoir extraire la forme
+		var objConv = JSON.parse(stringContent);
+		shape = (objConv.shape);
+    // You can now play with your datas
+}
