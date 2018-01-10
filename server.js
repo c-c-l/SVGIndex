@@ -65,8 +65,13 @@ db.once('open', function() {
 // 	res.sendFile(__dirname+"/index.html");
 // });
 
+// Page accueil
 app.get('/', function (req, res) {
-  res.render('home', { title: 'Recherche et indexation de fichiers SVG', message: 'Hello there!' })
+  res.render('home', { title: 'Recherche et indexation de fichiers SVG' })
+})
+// Pages pour chaque forme
+app.get('/cercle', function (req, res) {
+  res.render('cercle', { title: 'Recherche et indexation de fichiers SVG', shape: 'cercle' })
 })
 
 var port = 8080;

@@ -3,22 +3,28 @@ html {
 }
 h1 {
   color: #5f4b8b;
+  margin-bottom: 20px;
   text-align: center;
 }
 .rechercheShape {
-  margin-bottom: 30px;
+  margin-bottom: 20px;
   text-align: center;
 }
-.rechercheShape button {
+.rechercheShape a {
   background-color: #5f4b8b;
   border: 1px solid #FFF;
   border-radius: 5px;
   color: #FFF;
   cursor: pointer;
+  font-size: 14px;
   padding: 5px 10px;
+  text-decoration: none;
 }
-.rechercheShape button:hover {
+.rechercheShape a:hover {
   background-color: #FFF;
   border-color: #5f4b8b;
   color: #5f4b8b;
+}
+#resultat p {
+  text-align: center;
 }

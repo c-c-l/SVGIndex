@@ -1,17 +1,4 @@
 html
-  head
-    title= title
-    link(href='https://fonts.googleapis.com/css?family=Roboto', rel='stylesheet')
-    style 
-      include /assets/style.css
-  body
-    h1= message
-        div#main
-          div.rechercheShape
-            button(type='button' id='btnCirc' class='btnRecherche') Cercle
-            button(type='button' id='btnRect' class='btnRecherche') Rectangle
-            button(type='button' id='btnEll' class='btnRecherche') Ellipse
-            button(type='button' id='btnLine' class='btnRecherche') Ligne
-            button(type='button' id='btnPolygon' class='btnRecherche') Polygone
-            button(type='button' id='btnPolyline' class='btnRecherche') Polyline
-          div#resultat
+  include layout.pug
+  div#resultat
+    p= 'Sélectionnez une forme pour rechercher les fichiers SVG :) '

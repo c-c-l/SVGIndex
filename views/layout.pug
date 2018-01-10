@@ -1,0 +1,15 @@
+head
+  title= title
+  link(href='https://fonts.googleapis.com/css?family=Roboto', rel='stylesheet')
+  style 
+    include /assets/style.css
+body
+  h1= title
+  div#main
+    div.rechercheShape
+      a(href='cercle' id='btnCirc' class='btnRecherche') Cercle
+      a(href='rectangle' id='btnRect' class='btnRecherche') Rectangle
+      a(href='ellipse' id='btnEll' class='btnRecherche') Ellipse
+      a(href='ligne' id='btnLine' class='btnRecherche') Ligne
+      a(href='polygone' id='btnPolygon' class='btnRecherche') Polygone
+      a(href='polyline' id='btnPolyline' class='btnRecherche') Polyline
