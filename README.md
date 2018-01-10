@@ -22,6 +22,8 @@ Cette documentation est écrite dans le but d'éviter le surplus de commentaires
 - Création d'un convertisseur python de SVG en JSON
 - Création d'une fonctionnalité permettant de récupèrer la forme et l'url d'une image dans server.js
 - Intégration d'un modèle de template (pug)
+- Création d'un layout pour le modèle pug
+- Création des différentes pages sur server.js
 
 ## Sources
 
