@@ -16,7 +16,9 @@
 						"items": {
 							"type": "object",
 							"properties" : {
-								"color" : {"type" : "string"},
+								"color" : {
+									"type" : "string"
+								},
 							},
 							"required": ["color"]
 						}
@@ -26,5 +28,5 @@
 			}
 		}
 	},
-      "required": ["url", "content"]
-};
+	"required": ["url", "content"]
+}

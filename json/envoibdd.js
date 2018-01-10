@@ -7,35 +7,36 @@ mongoose.connect('mongodb://localhost/svg', { useMongoClient: true });;
 // JSON Schema : copie de jsonschema.json
 var schema = {
 	"url":{
-			"type" : "string"
-		},
-		"type":"object",
-		"properties":{
-			"content":{
-				"type": "array",
-				"items": {
-					"type": "object",
-					"properties": {
-						"shape": {
-							"type": "string"
-						},
-						"parameters" : {
-							"items": {
-								"type": "object",
-								"properties" : {
-									"color" : {"type" : "string"},
-								},
-								"required": ["color"]
-							}
-						}
+		"type" : "string"
+	},
+	"type":"object",
+	"properties":{
+		"content":{
+			"type": "array",
+			"items": {
+				"type": "object",
+				"properties": {
+					"shape": {
+						"type": "string"
 					},
-					"required": ["shape", "parameters"]
-				}
+					"parameters" : {
+						"items": {
+							"type": "object",
+							"properties" : {
+								"color" : {
+									"type" : "string"
+								},
+							},
+							"required": ["color"]
+						}
+					}
+				},
+				"required": ["shape", "parameters"]
 			}
-		},
-	      "required": ["url", "content"]
-	};
-
+		}
+	},
+	"required": ["url", "content"]
+}
 
 var Image = mongoose.model('Image', schema);
 

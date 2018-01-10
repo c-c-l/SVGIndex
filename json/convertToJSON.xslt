@@ -29,12 +29,21 @@
 
 		<xsl:text>{"shape":"</xsl:text>
 		<xsl:value-of select="name(.)"/>
-		<xsl:text>","color":</xsl:text>
-		<xsl:value-of select="name(.)"/>
-		<xsl:text>}</xsl:text>
+		<xsl:text>","parameters":[</xsl:text>
 
+			<xsl:for-each select="@*">
+				<xsl:text>&#10;</xsl:text>
+				<xsl:text>{"color":"</xsl:text>
+				<xsl:value-of select="name(.)"/>
 
+				<xsl:if test="position() != last()">
+					<xsl:text>"},</xsl:text>
+				</xsl:if>
 
+				<xsl:if test="position() = last()">
+					<xsl:text>"}</xsl:text>
+				</xsl:if>
+			</xsl:for-each>
 		<xsl:text>]</xsl:text>
 		<xsl:text>}</xsl:text>
 
