@@ -69,6 +69,9 @@ db.once('open', function() {
 app.get('/', function (req, res) {
   res.render('home', { title: 'Recherche et indexation de fichiers SVG' })
 })
+app.get('/couleur', function (req, res) {
+  res.render('couleur', { title: 'Recherche et indexation de fichiers SVG' })
+})
 // Pages pour chaque forme (un peu redondant mais on verra après si on a le temps de facto)
 app.get('/cercle', function (req, res) {
   res.render('shape', { title: 'Recherche et indexation de fichiers SVG', shape: 'cercle', fichiers: cercleT })
@@ -97,13 +100,18 @@ http.listen(port, function() {
 
 // Enregistrer le dossier contenant les fichiers json
 var dirJson = "json/jsonimage";
-// On créé des tableaux pour stocker les noms des fichiers qui ont une forme donnée
+// On créé des tableaux pour stocker les noms des fichiers qui ont une forme
+// ou une couleur donnée
 var cercleT = [];
 var rectT = [];
 var elliT = [];
 var lineT = [];
 var polygT = [];
 var polyliT = [];
+var redT = [];
+var blueT = [];
+var yellowT = [];
+var greenT = [];
 // fs.readFile('json/jsonimage/circle001.json', getShape)
 // Parcourir le dossier à la recherche des fichiers json
 fs.readdir(dirJson, function( err, files ) {
@@ -128,14 +136,41 @@ fs.readdir(dirJson, function( err, files ) {
 				stringContent = stringContent.substring(1, strilen);
 				// Parser l'objet converti pour pouvoir extraire la forme
 				var objConv = JSON.parse(stringContent);
-				shape = (objConv.shape);
-				console.log(dirJson+'/'+file+ ' : ' + shape)
+				shape = objConv.shape;
+				param = objConv.parameters;
+				paramString = JSON.stringify(param);
+				paramlen = paramString.length;
+				paramlen = paramlen - 1;
+				param = paramString.substring(1, paramlen);
+				var param = JSON.parse(param);
+				var color = param.color;
+				// TEST  :
+				console.log(dirJson+'/'+file+ ' : ' + shape + ' color : ' + color)
 				// On stocke le nom du fichier uniquement
 				var fileLen = file.length;
 				var fileNoExt = file.substring(0, fileLen - 5)
 				// On ajoute l'extension .svg au fichier
 				file = fileNoExt + '.svg';
-				if(shape == 'circle') {
+				if (color == 'red') {
+					redT.push(file);
+					console.log(redT);
+				}
+				else if (color == 'yellow') {
+					yellowT.push(file);
+					console.log(yellowT);
+				}
+				else if (color == 'blue') {
+					blueT.push(file);
+					console.log(blueT);
+				}
+				else if (color == 'green') {
+					greenT.push(file);
+					console.log(greenT);
+				}
+				else {
+					console.log("La couleur n'a pas été détectée :(");
+				}
+				if (shape == 'circle') {
 					cercleT.push(file);
 					console.log(cercleT);
 				}

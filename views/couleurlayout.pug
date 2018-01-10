@@ -1,0 +1,14 @@
+head
+  title= title
+  link(href='https://fonts.googleapis.com/css?family=Roboto', rel='stylesheet')
+  style 
+    include /assets/style.css
+body
+  h1= title
+  div#main
+    a(href='../' class='btnRechercheCol') Rechercher par forme
+    div.rechercheShape
+      a(href='rouge' class='btnRecherche') Rouge
+      a(href='vert' class='btnRecherche') Vert
+      a(href='bleu' class='btnRecherche') Bleu
+      a(href='jaune' class='btnRecherche') Jaune

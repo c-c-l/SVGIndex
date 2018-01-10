@@ -13,11 +13,9 @@ from svgpathtools import svg2paths2
 import json
 
 # Fichier à convertir :
-# fhand = open('svg/circle001.svg')
 print("Entrez ici le nom du fichier SVG :")
 fic = input()
 doc = parse(fic)
-# doc = parse('svg/circle001.svg')
 
 # C'est moche mais ça marche
 # On cherche les tags dans le fichier SVG pour déterminer la forme
