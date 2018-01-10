@@ -69,9 +69,24 @@ db.once('open', function() {
 app.get('/', function (req, res) {
   res.render('home', { title: 'Recherche et indexation de fichiers SVG' })
 })
-// Pages pour chaque forme
+// Pages pour chaque forme (un peu redondant mais on verra après si on a le temps de facto)
 app.get('/cercle', function (req, res) {
-  res.render('cercle', { title: 'Recherche et indexation de fichiers SVG', shape: 'cercle' })
+  res.render('shape', { title: 'Recherche et indexation de fichiers SVG', shape: 'cercle' })
+})
+app.get('/rectangle', function (req, res) {
+  res.render('shape', { title: 'Recherche et indexation de fichiers SVG', shape: 'rectangle' })
+})
+app.get('/ellipse', function (req, res) {
+  res.render('shape', { title: 'Recherche et indexation de fichiers SVG', shape: 'ellipse' })
+})
+app.get('/ligne', function (req, res) {
+  res.render('shape', { title: 'Recherche et indexation de fichiers SVG', shape: 'ligne' })
+})
+app.get('/polygone', function (req, res) {
+  res.render('shape', { title: 'Recherche et indexation de fichiers SVG', shape: 'polygone' })
+})
+app.get('/polyline', function (req, res) {
+  res.render('shape', { title: 'Recherche et indexation de fichiers SVG', shape: 'polyline' })
 })
 
 var port = 8080;
