@@ -3,11 +3,17 @@ var express = require('express');
 var app = express();
 var http = require('http').Server(app);
 var url = require('url');
-var querystring = require('querystring');
 var fs = require('fs');
+var path = require("path");
 var mongoose = require('mongoose');
+// On configure les views
+app.set('view engine', 'pug')
+// On configure le dossier des views
+app.set("views", path.join(__dirname, "views"));
+app.locals.basedir = path.join(__dirname, 'views');
+
 // Pour le CSS et le JS
-app.use(express.static(__dirname));
+// app.use(express.static(__dirname));
 
 // Connexion à la BD
 mongoose.connect('mongodb://localhost/svg');
@@ -52,18 +58,23 @@ db.once('open', function() {
   console.log('Connexion OK :)')
 });
 
+
 // Route / index
 // Configure la page affichée pour localhost:8080/
-app.get('/', function(req, res) {
-	res.sendFile(__dirname+"/index.html");
-});
+// app.get('/', function(req, res) {
+// 	res.sendFile(__dirname+"/index.html");
+// });
+
+app.get('/', function (req, res) {
+  res.render('home', { title: 'Recherche et indexation de fichiers SVG', message: 'Hello there!' })
+})
 
 var port = 8080;
 http.listen(port, function() {
 	console.log('Serveur Nodejs Express sur le port 8080');
 });
 
-// VOILA
+
 // Enregistrer le dossier contenant les fichiers json
 var dirJson = "json/jsonimage";
 // fs.readFile('json/jsonimage/circle001.json', getShape)
@@ -96,3 +107,4 @@ fs.readdir(dirJson, function( err, files ) {
 		});
 	});
 });
+// GET resultat ID pour afficher les résultats
