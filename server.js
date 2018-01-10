@@ -86,7 +86,7 @@ app.get('/polygone', function (req, res) {
   res.render('shape', { title: 'Recherche et indexation de fichiers SVG', shape: 'polygone' })
 })
 app.get('/polyline', function (req, res) {
-  res.render('shape', { title: 'Recherche et indexation de fichiers SVG', shape: 'polyline' })
+  res.render('shape', { title: 'Recherche et indexation de fichiers SVG', shape: 'polyline', fichiers: polyliT })
 })
 
 var port = 8080;
@@ -97,6 +97,13 @@ http.listen(port, function() {
 
 // Enregistrer le dossier contenant les fichiers json
 var dirJson = "json/jsonimage";
+// On créé des tableaux pour stocker les noms des fichiers qui ont une forme donnée
+var cercleT = [];
+var rectT = [];
+var elliT = [];
+var lineT = [];
+var polygT = [];
+var polyliT = [];
 // fs.readFile('json/jsonimage/circle001.json', getShape)
 // Parcourir le dossier à la recherche des fichiers json
 fs.readdir(dirJson, function( err, files ) {
@@ -123,6 +130,33 @@ fs.readdir(dirJson, function( err, files ) {
 				var objConv = JSON.parse(stringContent);
 				shape = (objConv.shape);
 				console.log(dirJson+'/'+file+ ' : ' + shape)
+				if(shape == 'circle') {
+					cercleT.push(file);
+					console.log(cercleT);
+				}
+				else if (shape == 'ellipse') {
+					elliT.push(file);
+					console.log(elliT);
+				}
+				else if (shape == 'rect') {
+					rectT.push(file);
+					console.log(rectT);
+				}
+				else if (shape == 'polygon') {
+					polygT.push(file);
+					console.log(polygT);
+				}
+				else if (shape == 'polyline') {
+					polyliT.push(file);
+					console.log(polyliT);
+				}
+				else if (shape == 'line') {
+					lineT.push(file);
+					console.log(lineT);
+				}
+				else {
+					console.log('Pas de forme détectée :(')
+				}
 				return shape;
 		});
 	});
