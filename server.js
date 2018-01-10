@@ -67,29 +67,42 @@ db.once('open', function() {
 
 // Page accueil
 app.get('/', function (req, res) {
-  res.render('home', { title: 'Recherche et indexation de fichiers SVG' })
+  res.render('home', { title: 'Recherche et indexation de fichiers SVG', mess: 'Sélectionnez une forme pour rechercher les fichiers SVG :)' })
 })
 app.get('/couleur', function (req, res) {
-  res.render('couleur', { title: 'Recherche et indexation de fichiers SVG' })
+  res.render('couleur', { title: 'Recherche et indexation de fichiers SVG', mess: 'Sélectionnez une couleur pour rechercher les fichiers SVG :)' })
 })
 // Pages pour chaque forme (un peu redondant mais on verra après si on a le temps de facto)
 app.get('/cercle', function (req, res) {
-  res.render('shape', { title: 'Recherche et indexation de fichiers SVG', shape: 'cercle', fichiers: cercleT })
+  res.render('shape', { title: 'Recherche et indexation de fichiers SVG', mess: 'Fichiers contenant un cercle', fichiers: cercleT })
 })
 app.get('/rectangle', function (req, res) {
-  res.render('shape', { title: 'Recherche et indexation de fichiers SVG', shape: 'rectangle', fichiers: rectT })
+  res.render('shape', { title: 'Recherche et indexation de fichiers SVG', mess: 'Fichiers contenant un rectangle', fichiers: rectT })
 })
 app.get('/ellipse', function (req, res) {
-  res.render('shape', { title: 'Recherche et indexation de fichiers SVG', shape: 'ellipse', fichiers: elliT })
+  res.render('shape', { title: 'Recherche et indexation de fichiers SVG', mess: 'Fichiers contenant une ellipse', fichiers: elliT })
 })
 app.get('/ligne', function (req, res) {
-  res.render('shape', { title: 'Recherche et indexation de fichiers SVG', shape: 'ligne', fichiers: lineT })
+  res.render('shape', { title: 'Recherche et indexation de fichiers SVG', mess: 'Fichiers contenant une ligne', fichiers: lineT })
 })
 app.get('/polygone', function (req, res) {
-  res.render('shape', { title: 'Recherche et indexation de fichiers SVG', shape: 'polygone', fichiers: polygT })
+  res.render('shape', { title: 'Recherche et indexation de fichiers SVG', mess: 'Fichiers contenant un polygone', fichiers: polygT })
 })
 app.get('/polyline', function (req, res) {
-  res.render('shape', { title: 'Recherche et indexation de fichiers SVG', shape: 'polyline', fichiers: polyliT })
+  res.render('shape', { title: 'Recherche et indexation de fichiers SVG', mess: 'Fichiers contenant une polyline', fichiers: polyliT })
+})
+// Pages pour chaque couleur
+app.get('/rouge', function (req, res) {
+  res.render('couleurindex', { title: 'Recherche et indexation de fichiers SVG',mess: 'Fichiers de couleur rouge', fichiers: redT })
+})
+app.get('/vert', function (req, res) {
+  res.render('couleurindex', { title: 'Recherche et indexation de fichiers SVG',mess: 'Fichiers de couleur verte', fichiers: greenT })
+})
+app.get('/bleu', function (req, res) {
+  res.render('couleurindex', { title: 'Recherche et indexation de fichiers SVG',mess: 'Fichiers de couleur bleue', fichiers: blueT })
+})
+app.get('/jaune', function (req, res) {
+  res.render('couleurindex', { title: 'Recherche et indexation de fichiers SVG',mess: 'Fichiers de couleur jaune', fichiers: yellowT })
 })
 
 var port = 8080;
