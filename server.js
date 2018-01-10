@@ -71,19 +71,19 @@ app.get('/', function (req, res) {
 })
 // Pages pour chaque forme (un peu redondant mais on verra après si on a le temps de facto)
 app.get('/cercle', function (req, res) {
-  res.render('shape', { title: 'Recherche et indexation de fichiers SVG', shape: 'cercle' })
+  res.render('shape', { title: 'Recherche et indexation de fichiers SVG', shape: 'cercle', fichiers: cercleT })
 })
 app.get('/rectangle', function (req, res) {
-  res.render('shape', { title: 'Recherche et indexation de fichiers SVG', shape: 'rectangle' })
+  res.render('shape', { title: 'Recherche et indexation de fichiers SVG', shape: 'rectangle', fichiers: rectT })
 })
 app.get('/ellipse', function (req, res) {
-  res.render('shape', { title: 'Recherche et indexation de fichiers SVG', shape: 'ellipse' })
+  res.render('shape', { title: 'Recherche et indexation de fichiers SVG', shape: 'ellipse', fichiers: elliT })
 })
 app.get('/ligne', function (req, res) {
-  res.render('shape', { title: 'Recherche et indexation de fichiers SVG', shape: 'ligne' })
+  res.render('shape', { title: 'Recherche et indexation de fichiers SVG', shape: 'ligne', fichiers: lineT })
 })
 app.get('/polygone', function (req, res) {
-  res.render('shape', { title: 'Recherche et indexation de fichiers SVG', shape: 'polygone' })
+  res.render('shape', { title: 'Recherche et indexation de fichiers SVG', shape: 'polygone', fichiers: polygT })
 })
 app.get('/polyline', function (req, res) {
   res.render('shape', { title: 'Recherche et indexation de fichiers SVG', shape: 'polyline', fichiers: polyliT })
@@ -130,6 +130,11 @@ fs.readdir(dirJson, function( err, files ) {
 				var objConv = JSON.parse(stringContent);
 				shape = (objConv.shape);
 				console.log(dirJson+'/'+file+ ' : ' + shape)
+				// On stocke le nom du fichier uniquement
+				var fileLen = file.length;
+				var fileNoExt = file.substring(0, fileLen - 5)
+				// On ajoute l'extension .svg au fichier
+				file = fileNoExt + '.svg';
 				if(shape == 'circle') {
 					cercleT.push(file);
 					console.log(cercleT);
