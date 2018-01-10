@@ -19,7 +19,9 @@ Cette documentation est écrite dans le but d'éviter le surplus de commentaires
 - Création JSON Schema
 - Création du fichier XSLT
 - Impossible d'utiliser le fichier XSLT parce qu'on ne comprend pas la techno
-- Création d'un convertisseur python de SVG en JSON 
+- Création d'un convertisseur python de SVG en JSON
+- Création d'une fonctionnalité permettant de récupèrer la forme et l'url d'une image dans server.js
+- Intégration d'un modèle de template (pug)
 
 ## Sources
 
