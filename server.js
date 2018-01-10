@@ -66,7 +66,7 @@ http.listen(port, function() {
 // VOILA
 // Enregistrer le dossier contenant les fichiers json
 var dirJson = "json/jsonimage";
-fs.readFile('json/jsonimage/circle001.json', getShape)
+// fs.readFile('json/jsonimage/circle001.json', getShape)
 // Parcourir le dossier à la recherche des fichiers json
 fs.readdir(dirJson, function( err, files ) {
 	if( err ) {
@@ -74,27 +74,25 @@ fs.readdir(dirJson, function( err, files ) {
 		process.exit( 1 );
 	}
 	files.forEach(function( file, index ) {
-		console.log(file);
 		// Lire fichier json
-		fs.readFile(dirJson+'/'+file, getShape);
+		fs.readFile(dirJson+'/'+file, function getShape(err, data) {
+		    if (err) throw err
+				// Parse fichier json
+		    obj = JSON.parse(data)
+				// Enregistrer le contenu dans une variable
+				content = obj.content
+				// Convertit le résultat en string afin de pouvoir encore parser derrière
+				stringContent = JSON.stringify(content)
+				strilen = stringContent.length
+				// Supprimer les crochets du début qui empêchent la fonction JSON.parse()
+				// de fonctionner #HARDCODE
+				strilen = strilen - 1;
+				stringContent = stringContent.substring(1, strilen);
+				// Parser l'objet converti pour pouvoir extraire la forme
+				var objConv = JSON.parse(stringContent);
+				shape = (objConv.shape);
+				console.log(dirJson+'/'+file+ ' : ' + shape)
+				return shape;
+		});
 	});
 });
-function getShape(err, data) {
-    if (err) throw err
-		// Parse fichier json
-    obj = JSON.parse(data)
-		// Enregistrer le contenu dans une variable
-		content = obj.content
-		// Convertit le résultat en string afin de pouvoir encore parser derrière
-		stringContent = JSON.stringify(content)
-		strilen = stringContent.length
-		// Supprimer les crochets du début qui empêchent la fonction JSON.parse()
-		// de fonctionner #HARDCODE
-		strilen = strilen - 1;
-		stringContent = stringContent.substring(1, strilen);
-		// Parser l'objet convertit pour pouvoir extraire la forme
-		var objConv = JSON.parse(stringContent);
-		shape = (objConv.shape);
-		console.log(shape)
-		return shape;
-}
